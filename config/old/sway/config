@@ -1,0 +1,18 @@
+set $mod Mod4
+set $alt Mod1
+
+# Autotiling - safe to run multiple times
+exec_always autotiling
+
+exec_always /home/richard/.dotfiles/scripts/bars.sh
+
+input * {
+  xkb_layout gb
+ 
+}
+
+output DP-2 position 0 0
+output HDMI-A-1 position 1920 0
+output DP-1 position 3840 0
+
+include ./config.d/*.conf

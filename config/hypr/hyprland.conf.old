@@ -1,0 +1,143 @@
+# DP-1 monitor
+workspace=I,monitor:DP-1,persistent:true,default:true
+workspace=II,monitor:DP-1,persistent:true
+workspace=III,monitor:DP-1,persistent:true
+workspace=IV,monitor:DP-1,persistent:true
+workspace=V,monitor:DP-1,persistent:true
+workspace=VI,monitor:DP-1,persistent:true
+workspace=VII,monitor:DP-1,persistent:true
+workspace=VIII,monitor:DP-1,persistent:true
+workspace=IX,monitor:DP-1,persistent:true
+workspace=X,monitor:DP-1,persistent:true
+workspace=Game,monitor:DP-1,persistent:true
+
+# HDMI-A-1 monitor
+workspace=Internet,monitor:HDMI-A-1,persistent:true,default:true
+workspace=Email,monitor:HDMI-A-1,persistent:true
+workspace=1,monitor:HDMI-A-1,persistent:true
+workspace=2,monitor:HDMI-A-1,persistent:true
+workspace=3,monitor:HDMI-A-1,persistent:true
+workspace=Steam,monitor:HDMI-A-1,persistent:true
+
+# DP-2 monitor
+workspace=Passwords,monitor:DP-2,persistent:true,default:true
+workspace=Teams,monitor:DP-2,persistent:true
+workspace=A,monitor:DP-2,persistent:true
+workspace=B,monitor:DP-2,persistent:true
+workspace=C,monitor:DP-2,persistent:true
+workspace=D,monitor:DP-2,persistent:true
+
+
+# Wayland apps
+windowrulev2 = workspace:Passwords, class:^(org.keepassxc.KeePassXC)$
+windowrulev2 = workspace:Email, class:^(thunderbird)$
+windowrulev2 = workspace:Internet, class:^(brave-browser)$
+windowrulev2 = workspace:Teams, class:^(teams-for-linux)$
+
+# XWayland apps
+windowrulev2 = workspace:Steam, class:^(steam)$
+
+$mod = SUPER
+$alt = ALT
+# Apps
+bind = $mod, T, exec, alacritty
+bind = $mod ALT, T, exec, alacritty
+bind = $mod, D, exec, wofi --show drun
+bind = $mod, RETURN, exec, /home/richard/.dotfiles/scripts/app-launcher.sh
+
+# Reload config
+bind = $mod, ESCAPE, exec, hyprctl reload
+
+# Workspace navigation (Hyprland uses workspace keywords directly)
+#bind = CTRL ALT, right, workspace, r+1
+#bind = CTRL ALT, left, workspace, r-1
+bind = CTRL ALT, right, exec, ~/.dotfiles/scripts/workspace-navigator.sh next
+bind = CTRL ALT, left, exec, ~/.dotfiles/scripts/workspace-navigator.sh prev
+
+# Lock screen
+bind = $mod, L, exec, swaylock
+
+# Power menu
+bind = $mod, DELETE, exec, /home/richard/.dotfiles/scripts/powermenu.sh
+
+# Moving containers to adjacent workspaces
+bind = $mod SHIFT, right, movetoworkspace, r+1
+bind = $mod SHIFT, left, movetoworkspace, r-1
+
+# Move container to adjacent monitor
+#bind = $mod ALT, right, movetomonitor, r
+#bind = $mod ALT, left, movetomonitor, l
+#bind = $mod ALT, RIGHT, exec, /home/richard/.dotfiles/scripts/move_to_monitor.sh right
+#bind = $mod ALT, LEFT,  exec, /home/richard/.dotfiles/scripts/move_to_monitor.sh left
+
+
+# Focus directions
+bind = $mod, up, movefocus, u
+bind = $mod, right, movefocus, r
+bind = $mod, down, movefocus, d
+bind = $mod, left, movefocus, l
+
+# Window management
+bind = $mod, W, killactive
+# Alt method: kill via hyprctl (no tree parsing needed)
+bind = $mod SHIFT, W, exec, hyprctl dispatch killactive
+
+# Layout toggles
+bind = $mod, M, fullscreen
+bind = $mod ALT, D, togglefloating, active
+bind = $mod ALT, F, togglefloating, active
+bind = $mod ALT, SPACE, fullscreen
+
+# Resize floating windows (resize dispatch takes dx dy)
+bind = $mod ALT, H, resizeactive, -20 0
+bind = $mod ALT, J, resizeactive, 0 20
+bind = $mod ALT, K, resizeactive, 0 -20
+bind = $mod ALT, L, resizeactive, 20 0
+
+bind = $mod ALT SHIFT, H, resizeactive, 20 0
+bind = $mod ALT SHIFT, J, resizeactive, 0 -20
+bind = $mod ALT SHIFT, K, resizeactive, 0 20
+bind = $mod ALT SHIFT, L, resizeactive, -20 0
+
+# Move floating windows around
+bind = $mod CTRL, left, moveactive, -20 0
+bind = $mod CTRL, down, moveactive, 0 20
+bind = $mod CTRL, up, moveactive, 0 -20
+bind = $mod CTRL, right, moveactive, 20 0
+
+
+# Start your bars script
+exec-once = /home/richard/.dotfiles/scripts/bars.sh
+
+# Keyboard layout
+input {
+    kb_layout = gb
+}
+
+# Monitor layout (name, resolution, position)
+# Syntax: monitor = <name>, <resolution@refresh>, <position>, <scale>
+# Use "preferred" if you don’t want to hardcode resolution/refresh
+monitor = DP-2, preferred, 0x0, 1
+monitor = HDMI-A-1, preferred, 1920x0, 1
+monitor = DP-1, preferred, 3840x0, 1
+
+# Default tiling layout
+general {
+    layout = dwindle
+}
+
+dwindle {
+    pseudotile = true      # keep window's size hints, e.g. mpv, gimp
+    preserve_split = true  # don’t flip split direction after closing a window
+}
+
+animations {
+    enabled = yes
+    
+    # Default animations (these are the slower ones)
+    animation = windows, 3, 3, default
+    animation = windowsOut, 2, 3, default
+    animation = border, 5, 3, default
+    animation = fade, 3, 3, default
+    animation = workspaces, 3, 3, default
+}

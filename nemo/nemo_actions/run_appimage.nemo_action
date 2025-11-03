@@ -1,0 +1,7 @@
+[Nemo Action]
+Name=Run AppImage
+Comment=Run this AppImage without a terminal
+Exec="%F"
+Selection=s
+Mimetypes=application/vnd.appimage;application/x-executable;application/x-sharedlib;
+Icon-Name=exec

@@ -1,0 +1,32 @@
+{
+    "layer": "top",
+    "position": "top",
+    "height": 30,
+    "output": ["DP-2"],
+    
+    "modules-left": ["hyprland/workspaces"],
+    "modules-right": ["custom/vpn", "clock", "clock#weekday"],
+    
+    "hyprland/workspaces": {
+        "format": "{name}",
+        "on-click": "activate"
+    },
+    "clock": {
+        "format": "{:%H:%M}",
+        "interval": 1
+    },
+    "clock#weekday": {
+        "format": "{:%A}",
+        "tooltip": false,
+        "class": "weekday"
+    },
+
+    "custom/vpn": {
+        "exec": "/home/richard/.dotfiles/config/waybar/vpn-status.sh",
+        "return-type": "json",
+        "interval": 5,
+        "on-click": "/home/richard/.dotfiles/config/waybar/vpn-on.sh",
+        "on-click-right": "/home/richard/.dotfiles/config/waybar/vpn-off.sh",
+        "format": "{}"
+    }
+}

@@ -1,0 +1,9 @@
+[Nemo Action]
+Name=Toggle Executable
+Comment=Add or remove executable permission
+Exec=sh -c 'if [ -x "%F" ]; then chmod -x "%F"; else chmod +x "%F"; fi'
+Icon-Name=system-run
+Selection=s
+Extensions=AppImage;bin;run;sh;
+Mimetypes=application/x-shellscript;
+Conditions=any

@@ -1,0 +1,9 @@
+[Nemo Action]
+Name=Run with Bash (no terminal)
+Comment=Execute script silently with bash
+Exec=bash "%F"
+Icon-Name=application-x-executable
+Selection=s
+Extensions=sh;run;AppImage;bin;
+Conditions=exec 
+

@@ -1,0 +1,135 @@
+Approach Overview
+
+We'll create:
+
+Two Polybar config files
+
+~/.config/polybar/config-normal → your current setup.
+
+~/.config/polybar/config-work → a stripped-down, single-monitor setup.
+
+Two scripts
+
+~/bin/work-mode.sh → enable laptop usage.
+
+~/bin/restore-mode.sh → return to normal.
+
+Dynamic desktop reassignment via bspc.
+
+Restart Polybar cleanly when switching.
+
+Step 1 — Duplicate Your Current Polybar Config
+cp ~/.config/polybar/config ~/.config/polybar/config-normal
+cp ~/.config/polybar/config ~/.config/polybar/config-work
+
+
+Now you have two configs:
+
+Normal mode: unchanged.
+
+Work mode: edit this later to remove unneeded bars and modules.
+
+Step 2 — Work Mode Script
+
+Create ~/bin/work-mode.sh:
+
+#!/bin/bash
+
+# === Monitor Setup ===
+# Turn off two external monitors so they can be used by the laptop
+xrandr --output DP-4 --off
+xrandr --output HDMI-0 --off
+
+# Leave DP-3 as the only active monitor for the main PC
+xrandr --output DP-3 --auto
+
+# === bspwm Desktop Setup ===
+# Remove desktops from disabled monitors so bspwm doesn't get confused
+bspc monitor DP-4 -r
+bspc monitor HDMI-0 -r
+
+# Assign a simplified set of desktops to DP-3 for work mode
+bspc monitor DP-3 -d Music Chat Browser Misc
+
+# === Restart Polybar with work config ===
+pkill polybar
+polybar -c ~/.config/polybar/config-work main &
+
+
+Make it executable:
+
+chmod +x ~/bin/work-mode.sh
+
+Step 3 — Restore Mode Script
+
+Create ~/bin/restore-mode.sh:
+
+#!/bin/bash
+
+# === Monitor Setup ===
+# Re-enable all monitors
+xrandr --output DP-4 --auto --primary
+xrandr --output HDMI-0 --auto --right-of DP-4
+xrandr --output DP-3 --auto --right-of HDMI-0
+
+# === bspwm Desktop Setup ===
+# Restore your original desktop assignments
+bspc monitor DP-4 -d I II III IV V VI VII VIII IX X
+bspc monitor HDMI-0 -d Internet Email 1 2 3
+bspc monitor DP-3 -d Passwords Teams A B C D
+
+# === Restart Polybar with normal config ===
+pkill polybar
+polybar -c ~/.config/polybar/config-normal dp4 &
+polybar -c ~/.config/polybar/config-normal hdmi0 &
+polybar -c ~/.config/polybar/config-normal dp3 &
+
+
+Make it executable:
+
+chmod +x ~/bin/restore-mode.sh
+
+Step 4 — Create a Work Polybar Config
+
+Open ~/.config/polybar/config-work and strip it down to just one bar on DP-3:
+
+[bar/main]
+monitor = DP-3
+width = 100%
+height = 28
+modules-left = workspaces
+modules-right = barrier volume clock
+background = #222
+foreground = #eee
+
+
+You can customise this however you like — e.g. just music, clock, volume, etc.
+
+Step 5 — Optional Polybar Toggle Button
+
+In your normal Polybar config, you can add a module to switch into work mode:
+
+[module/workmode]
+type = custom/script
+exec = echo " Work Mode"
+click-left = ~/bin/work-mode.sh
+
+
+And in the work Polybar config, add a button to restore normal mode:
+
+[module/normalmode]
+type = custom/script
+exec = echo " Normal Mode"
+click-left = ~/bin/restore-mode.sh
+
+Step 6 — Workflow
+
+When working:
+
+~/bin/work-mode.sh
+
+
+When finished:
+
+~/bin/restore-mode.sh
+

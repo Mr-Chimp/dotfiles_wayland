@@ -1,0 +1,10 @@
+[Unit]
+Description=Random wallpaper per monitor with swww
+After=graphical-session.target
+
+[Service]
+Type=oneshot
+ExecStart=%h/.dotfiles/scripts/swww.sh
+
+[Install]
+WantedBy=default.target

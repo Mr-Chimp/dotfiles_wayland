@@ -1,0 +1,7 @@
+[Nemo Action]
+Name=Run in Terminal
+Comment=Execute in a new terminal window
+Exec=alacritty --hold -e %F
+Selection=s
+Extensions=appimage;sh;
+Icon-Name=exec

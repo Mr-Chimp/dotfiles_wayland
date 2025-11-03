@@ -1,0 +1,18 @@
+Notes
+==========
+Basic image background stuff is in place but I have thoughts on how to make it better (really I want Wayland and swww) so I think I have multiple image sources in a folder and the swap_background.sh reads a file, perhaps ~/.background which contains a text string 'anime', 'cars', 'nature', 'ladies' etc and then in swap_backgrouns.sh is a switch on those variable names that tells feh which directory of images to pull from.
+
+I would then write a go application that when run sets the variable based on what is chosen
+
+This could be expanded to have the images hosted on my server and only certain images get downloaded at a time, perhaps controlled by Variety. Basically to keep space usage to a minimum. I probably want to put the iamges onto the nvme drive to make background switching faster as well
+
+
+.xinitrc - Not required
+===========================
+So because lightdm starts everything the .xinitrc file is not required, but as I was using it for a bit I have chosen to keep in in place, could always be a good thing utilise in the future.
+
+Icons
+===========
+The icon packs are NOT automatically unzipped and put into directories, manually go into the 'icons' folder and do that for the moment and run the overrides.sh script in there to replace the awful appimage icon.
+
+In the future putting those zips on some hosting and having a n

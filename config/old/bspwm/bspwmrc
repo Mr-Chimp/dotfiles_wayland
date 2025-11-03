@@ -1,0 +1,36 @@
+#! /bin/sh
+
+pgrep -x sxhkd > /dev/null || sxhkd &
+
+bspc monitor DP-4 -d I II III IV V VI VII VIII IX X Game
+bspc monitor HDMI-0 -d Internet Email 1 2 3 Steam
+bspc monitor DP-3 -d Passwords Teams A B C D
+
+bspc config border_width         2
+bspc config window_gap          12
+
+bspc config split_ratio          0.50
+bspc config borderless_monocle   true
+bspc config gapless_monocle      true
+
+#Autostart applications
+~/.screenlayout/newdefault.sh
+sxhkd &
+picom --config $HOME/.config/picom/picom.conf &
+#nitrogen set-zoome-fill --random /home/data/Pictures/backgrounds/Anime_1440 --restore &
+dunst &
+polybar middle &
+polybar right &
+polybar left &
+
+systemctl --user import-environment PATH DBUS_SESSION_BUS_ADDRESS
+systemctl --user import-environment DISPLAY XAUTHORITY
+systemctl --no-block --user start xsession.target
+#systemctl --user start feh-wallpaper.timer
+
+#gnome-settings-daemon &
+#xsettingsd &
+#sleep 5
+
+#Rules moved to startup.sh
+

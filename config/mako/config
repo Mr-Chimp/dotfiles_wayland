@@ -1,0 +1,47 @@
+# Global settings
+font=Monospace 8
+width=300
+height=300
+margin=5,5,35
+padding=8
+border-size=1
+border-radius=5
+icons=1
+max-icon-size=128
+icon-path=/usr/share/icons/gnome/16x16/status/:/usr/share/icons/gnome/16x16/devices/
+markup=1
+format=<b>%s</b>\n%b
+text-alignment=left
+default-timeout=5000
+ignore-timeout=0
+max-visible=20
+layer=overlay
+anchor=top-right
+
+# Progress bar equivalent (mako shows progress bars automatically)
+progress-color=over #8ABEB7
+
+# Mouse actions
+on-button-left=dismiss
+on-button-middle=invoke-default-action
+on-button-right=dismiss-all
+
+# Default/Normal urgency
+background-color=#282A2E
+text-color=#C5C8C6
+border-color=#8ABEB7
+
+# Low urgency
+[urgency=low]
+background-color=#282A2E
+text-color=#C5C8C6
+border-color=#C5C8C6
+default-timeout=10000
+
+# Critical urgency
+[urgency=critical]
+background-color=#282A2E
+text-color=#C5C8C6
+border-color=#A54242
+default-timeout=0
+ignore-timeout=1
