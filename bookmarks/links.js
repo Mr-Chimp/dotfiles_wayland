@@ -4,33 +4,8 @@ window.linksData = {
                 "category": "Music",
                 "links": [
                   {
-                    "name": "Best Nightcore Mix 2025",
-                    "url": "https://www.youtube.com/watch?v=VeSBNU9o7Fc",
-                    "target": "_blank"
-                  },
-                  {
-                    "name": "Emotional Epic Music Mix",
-                    "url": "https://www.youtube.com/watch?v=Bvlf81-TBaY",
-                    "target": "_blank"
-                  },
-                  {
-                    "name": "Badass Monster Songs",
-                    "url": "https://www.youtube.com/watch?v=r40u_8Jm-dI",
-                    "target": "_blank"
-                  },
-                  {
-                    "name": "New Music 2025 EDM ",
-                    "url": "https://www.youtube.com/watch?v=wi7q1-6Rk4E",
-                    "target": "_blank"
-                  },
-                  {
                     "name": "Power Rangers Youtube Mix ",
                     "url": "https://www.youtube.com/watch?v=H-QA4nuXPLA&list=RDTs9-TOcKuBE&index=26",
-                    "target": "_blank"
-                  },
-                  {
-                    "name": "Devil May Cry - Lsst Resort",
-                    "url": "https://www.youtube.com/watch?v=KhIXeUTMOmk",
                     "target": "_blank"
                   },
                   {
@@ -68,10 +43,6 @@ window.linksData = {
                     "url": "https://www.youtube.com/watch?v=qQWUYSFPHZY&list=RDyebNIHKAC4A&index=27",
                     "target": "_blank"
                   }
-                  
-                  
-                  
-                  
                 ]
               },            
               {
@@ -111,8 +82,12 @@ window.linksData = {
                     "name": "Claude",
                     "url": "https://claude.ai/chat",
                     "target": "_blank"
+                  },
+                  {
+                    "name": "Perplexity",
+                    "url": "https://www.perplexity.ai/search",
+                    "target": "_blank"
                   }
-                  
                 ]
               },
               {
@@ -127,7 +102,23 @@ window.linksData = {
                     "name": "Foundry DC20 Rules",
                     "url": "https://baileywiki.itch.io/dc20-core-rules",
                     "target": "_blank"
+                  },
+                  {
+                    "name": "Perilous Persuits",
+                    "url": "http://www.perilouspursuits.com/extras.html",
+                    "target": "_blank"
+                  },
+                  {
+                    "name": "DC20 Community Wiki",
+                    "url": "https://wiki.dc20.community/en/community/resources",
+                    "target": "_blank"
+                  },
+                  {
+                    "name": "DC20 Forge (encounter builder & player tracker)",
+                    "url": "https://www.patreon.com/cw/DC20Forge/membership",
+                    "target": "_blank"
                   }
+                  
                 ]
               },
               {

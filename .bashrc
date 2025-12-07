@@ -13,7 +13,7 @@ alias grep='grep --color=auto'
 PS1='[\u@\h \W]\$ '
 
 
-alias upall="paru -Syu --noconfirm && sudo npm -g update"
+alias upall="paru -Syu --noconfirm && curl -fsSL https://opencode.ai/install | bash"
 alias update='sudo pacman -Syyu'
 alias ansible-playbook="ansible-playbook --inventory=./inventory.ini"
 alias gitnuro='env _JAVA_AWT_WM_NONREPARENTING=1 java -jar /home/data/Applications/Gitnuro-linux-x86_64-1.4.3.jar'
@@ -21,5 +21,9 @@ alias gitnuro='env _JAVA_AWT_WM_NONREPARENTING=1 java -jar /home/data/Applicatio
 alias fixicons='~/.dotfiles/scripts/fix-icons.sh'
 
 #source /usr/share/nvm/init-nvm.sh
+export PATH="$HOME/.local/bin:$PATH"
 
 fastfetch
+
+# opencode
+export PATH=/home/richard/.opencode/bin:$PATH

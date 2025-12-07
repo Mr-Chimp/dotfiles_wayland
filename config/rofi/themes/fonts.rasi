@@ -1,0 +1,7 @@
+/**
+ * Font configuration matching Wofi
+ */
+
+* {
+    font: "JetBrainsMono 12";
+}

@@ -10,10 +10,24 @@ else
     AUR_UPDATES=0
 fi
 
-TOTAL=$((PACMAN_UPDATES + AUR_UPDATES))
+# Count npm global package updates if npm is installed
+if command -v npm >/dev/null; then
+    NPM_UPDATES=$(npm outdated -g --parseable 2>/dev/null | wc -l)
+else
+    NPM_UPDATES=0
+fi
+
+TOTAL=$((PACMAN_UPDATES + AUR_UPDATES + NPM_UPDATES))
 
 if [ "$TOTAL" -gt 0 ]; then
-    notify-send "Updates Available" "$TOTAL packages need updating ($PACMAN_UPDATES repo, $AUR_UPDATES AUR)"
+    MESSAGE="$TOTAL packages need updating"
+    DETAILS="$PACMAN_UPDATES repo, $AUR_UPDATES AUR"
+    
+    if [ "$NPM_UPDATES" -gt 0 ]; then
+        DETAILS="$DETAILS, $NPM_UPDATES npm"
+    fi
+    
+    notify-send "Updates Available" "$MESSAGE ($DETAILS)"
 else
     notify-send "No updates"
 fi

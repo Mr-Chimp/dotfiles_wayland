@@ -31,10 +31,10 @@ Personal configuration files for my Arch Linux system with Hyprland.
 
 ```
 .dotfiles/
-├── bookmarks/          # Custom bookmark manager
+├── bookmarks/          # Web browser start page
 ├── config/             # Application configs
-├── dm/                 # Display manager setup
-├── icons/              # Icon themes (Flat Remix variants)
+├── dm/                 # Lock screen backgrounds
+├── icons/              # Icon themes, cursor themes, and icon overrides (configured via overrides.sh)
 ├── nemo/               # File manager actions and scripts
 ├── scripts/            # Utility scripts
 ├── setup/              # Installation and setup scripts

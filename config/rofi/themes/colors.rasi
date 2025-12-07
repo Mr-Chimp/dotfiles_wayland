@@ -1,0 +1,15 @@
+/**
+ * Colors matching Wofi theme
+ * Background: #292e42 with 90% opacity
+ * Border: #b072d1 (purple)
+ * Text: #e5e9f0 (light gray)
+ */
+
+* {
+    background:     #292e42E6;
+    background-alt: #2e3440FF;
+    foreground:     #e5e9f0FF;
+    selected:       #b072d1FF;
+    active:         #b072d1FF;
+    urgent:         #E06C75FF;
+}

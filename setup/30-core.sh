@@ -9,6 +9,7 @@ PACKAGES=(
     mousepad
     leafpad
     wofi
+    rofi
     keepassxc
     thunderbird
     fastfetch
