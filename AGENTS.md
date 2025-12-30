@@ -22,6 +22,8 @@ Personal Arch Linux dotfiles for Hyprland (Wayland compositor) - shell scripts, 
 
 ## Key Components
 - **Hyprland config**: `config/hypr/` - modular config (main, keybinds, monitors, workspaces, windowrules)
-- **App launcher**: `scripts/app-launcher.sh` - Wofi menu for Work/Projects/Apps, Night Light toggle
+- **App launcher**: `scripts/app-launcher.sh` - Wofi menu for Work/Projects/Apps, Night Light toggle (launched with `Super+Return`)
+- **Keybinds**: `config/hypr/keybinds.conf` - keyboard shortcuts (Super+Return launches app-launcher.sh)
 - **Projects**: Dotfiles, `/home/data/Coding/zProjects`, `/home/data/Coding/OmniEcho/code`
 - **Bootstrap**: `setup/80-bootstrap-config.sh` - creates symlinks from repo to `~/.config/`
+- **Rofi themes**: `config/rofi/themes/` - styling for Projects/Work menus (projects-menu.rasi, work-menu.rasi)

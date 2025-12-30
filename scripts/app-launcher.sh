@@ -54,7 +54,7 @@ work_menu() {
 
 # Function: show projects submenu
 projects_menu() {
-    project_options="Dotfiles\nProject Management\nOmniEcho\nAnsible\nRising Tides\nInfrastructure Docs\nDotfiles (VS)\nOmniEcho (VS)\nAnsible (VS)\nInfrastructure Docs (VS)"
+    project_options="Dotfiles\nProject Management\nOmniEcho\nAnsible\nAnAuto\nRising Tides\nInfrastructure Docs\nDotfiles (VS)\nOmniEcho (VS)\nAnsible (VS)\nAnAuto (VS)\nInfrastructure Docs (VS)"
     project_choice=$(echo -e "$project_options" | rofi -dmenu -theme ~/.config/rofi/themes/projects-menu.rasi -p "Projects" -i)
 
       case "$project_choice" in
@@ -78,10 +78,17 @@ projects_menu() {
           ;;
         "Ansible")
           hyprctl dispatch workspace empty
-          hyprctl dispatch exec "alacritty -e bash -ic 'cd \"/home/data/Synced/Main Bits/Local Hosting/Ansible\" && opencode'"
+          hyprctl dispatch exec "alacritty -e bash -ic 'cd \"/home/data/Synced/Main Bits/Local Hosting/\" && opencode'"
           ;;
         "Ansible (VS)")
           code --new-window "/home/data/Synced/Main Bits/Local Hosting/Ansible" & disown
+          ;;
+        "AnAuto")
+          hyprctl dispatch workspace empty
+          hyprctl dispatch exec "alacritty -e bash -ic 'cd /home/data/Coding/AnAuto && opencode'"
+          ;;
+        "AnAuto (VS)")
+          code --new-window /home/data/Coding/AnAuto & disown
           ;;
         "Rising Tides")
           hyprctl dispatch workspace empty

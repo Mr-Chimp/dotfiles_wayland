@@ -1,6 +1,7 @@
 [Unit]
 Description=Random wallpaper per monitor with swww
-After=graphical-session.target
+Requires=hyprland-session.target
+After=hyprland-session.target
 
 [Service]
 Type=oneshot
