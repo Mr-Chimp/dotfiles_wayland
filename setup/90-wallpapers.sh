@@ -2,8 +2,7 @@
 set -euo pipefail
 
 # === Variables ===
-DOTFILES_LIGHTDM_DIR="/home/richard/.dotfiles/dm"
-WALLPAPER_SRC_DIR="$DOTFILES_LIGHTDM_DIR/backgrounds"
+WALLPAPER_SRC_DIR="$HOME/.dotfiles/assets/lock_screen_images"
 WALLPAPER_DEST_DIR="/usr/share/backgrounds/dm"
 
 # === Wallpapers ===

@@ -1,0 +1,45 @@
+{
+    "layer": "top",
+    "position": "top",
+    "height": 30,
+    "output": ["HDMI-A-1"],
+    
+    "modules-left": ["hyprland/workspaces", "hyprland/window"],
+    "modules-right": ["disk", "pulseaudio", "memory", "cpu", "network", "clock"],
+    "hyprland/workspaces": {
+        "format": "{name}",
+        "on-click": "activate"
+    },
+    "clock": {
+        "format": "{:%Y-%m-%d %H:%M:%S}",
+        "tooltip-format": "",
+        "interval": 1,
+        "on-click": "gsimplecal"
+    },
+    
+    "cpu": {
+        "format": "CPU {usage}%"
+    },
+    
+    "memory": {
+        "format": "RAM {}%"
+    },
+    
+    "network": {
+        "interface": "enp*",
+        "format-ethernet": "{ifname} {ipaddr}",
+        "format-disconnected": "{ifname} disconnected"
+    },
+    
+    "pulseaudio": {
+        "format": " {volume}%",
+        "format-muted": " muted",
+        "on-click-right": "pavucontrol"
+    },
+    
+    "disk": {
+        "interval": 30,
+        "format": "/ {percentage_used}%",
+        "path": "/"
+    }
+}

@@ -78,7 +78,6 @@ PACKAGES=(
     ffmpeg
     ghome-keyring
     android-tools
-    hugo
 )
 
 echo "==> Installing core packages"

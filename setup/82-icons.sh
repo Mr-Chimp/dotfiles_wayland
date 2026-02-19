@@ -1,8 +1,8 @@
 #!/bin/bash
 
 # Source paths
-CURSOR_SOURCE="$HOME/.dotfiles/icons/Neutral"
-ICONS_SOURCE="$HOME/.dotfiles/icons"
+CURSOR_SOURCE="$HOME/.dotfiles/assets/icons/Neutral"
+ICONS_SOURCE="$HOME/.dotfiles/assets/icons"
 DEST="$HOME/.local/share/icons"
 
 # Create the icons directory if it doesn't exist
@@ -45,3 +45,15 @@ fi
 
 echo -e "\n✓ Installation complete!"
 echo "Restart nwg-look to see all changes"
+
+# Run icon overrides
+echo -e "\nApplying icon overrides..."
+OVERRIDE_SCRIPT="$HOME/.dotfiles/assets/icons/overrides.sh"
+if [ -f "$OVERRIDE_SCRIPT" ]; then
+    cd "$HOME/.dotfiles/assets/icons"
+    ./overrides.sh
+    echo "✓ Icon overrides applied!"
+else
+    echo "Warning: Override script not found at $OVERRIDE_SCRIPT"
+    echo "You may need to run it manually if you want to replace the executable icon."
+fi

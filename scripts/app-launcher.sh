@@ -74,8 +74,8 @@ projects_menu() {
       case "$project_choice" in
         "Dotfiles (Both)")
           hyprctl dispatch workspace empty
-          hyprctl dispatch exec "alacritty -e bash -ic 'cd /home/richard/.dotfiles && opencode'"
-          code --new-window /home/richard/.dotfiles & disown
+          hyprctl dispatch exec "alacritty -e bash -ic 'cd $HOME/.dotfiles && opencode'"
+          code --new-window $HOME/.dotfiles & disown
           ;;
         "Project Management")
           hyprctl dispatch workspace empty
@@ -148,10 +148,10 @@ case "$choice" in
     /home/data/Applications/Obsidian-1.8.4.AppImage & disown
     ;;
   Start-up)
-    /home/richard/.dotfiles/scripts/startup.sh & disown
+    $HOME/.dotfiles/scripts/startup.sh & disown
     ;;
   "Update Check")
-    /home/richard/.dotfiles/scripts/update_check.sh & disown
+    $HOME/.dotfiles/scripts/update_check.sh & disown
     ;;
   "Night Light")
     if pgrep -x hyprsunset > /dev/null; then

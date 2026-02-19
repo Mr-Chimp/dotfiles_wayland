@@ -1,6 +1,6 @@
 #!/bin/bash
 
-/home/richard/.dotfiles/scripts/update_check.sh &
+$HOME/.dotfiles/scripts/update_check.sh &
 
 # Launch applications
 firefox &

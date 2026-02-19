@@ -2,7 +2,7 @@
 set -euo pipefail
 
 # === Variables ===
-DOTFILES_LY_DIR="/home/richard/.dotfiles/dm"
+DOTFILES_LY_DIR="$HOME/.dotfiles/dm"
 LY_CONFIG_DIR="/etc/ly"
 
 # === Root Check ===
