@@ -18,7 +18,7 @@ Personal Arch Linux dotfiles for Hyprland (Wayland compositor) - shell scripts, 
 - **Error handling**: Use `set -euo pipefail` for setup scripts only (not interactive scripts)
 - **Paths**: Absolute paths preferred (`/home/richard/.dotfiles/` or `~/.dotfiles/`), use `$HOME` in scripts
 - **Hyprland commands**: `hyprctl dispatch exec`, `hyprctl dispatch workspace`, etc.
-- **Background jobs**: End with `& disown` for GUI apps launched from scripts
+- **Background jobs`: End with `& disown` for GUI apps launched from scripts
 
 ## Key Components
 - **Hyprland config**: `config/hypr/` - modular config (main, keybinds, monitors, workspaces, windowrules)

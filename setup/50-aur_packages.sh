@@ -8,6 +8,7 @@ AUR_PACKAGES=(
     barrier
     betterlockscreen
     wdisplays
+    opentofu
 )
 
 # Check if paru exists

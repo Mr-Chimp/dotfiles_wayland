@@ -2,7 +2,7 @@
 
 # Function: show work submenu
 work_menu() {
-    work_options="Platform\nInfrastructure\nSockets\nWorkers\nGitNuro\nTeams\nPlatform (VS)\nInfrastructure (VS)\nSockets (VS)\nWorkers (VS)\nConfig Editing"
+    work_options="Platform\nInfrastructure\nSockets\nWorkers\nGitNuro\nTeams\nPlatform (VS)\nInfrastructure (VS)\nSockets (VS)\nWorkers (VS)\nDevsite Deployment\nDevsite Deployment (VS)\nDevsite Dashboard\nDevsite Dashboard (VS)\nConfig Editing"
     work_choice=$(echo -e "$work_options" | rofi -dmenu -theme ~/.config/rofi/themes/work-menu.rasi -p "Work" -i)
 
     case "$work_choice" in
@@ -34,6 +34,20 @@ work_menu() {
       "Workers (VS)")
         code --new-window /home/data/Coding/MadeOpen/Platform_Workers & disown
         ;;
+      "Devsite Deployment")
+        hyprctl dispatch workspace empty
+        hyprctl dispatch exec "alacritty -e bash -ic 'cd /home/data/Coding/MadeOpen/Devsite\ Deployment/devsite-deployment && opencode'"
+        ;;
+      "Devsite Deployment (VS)")
+        code --new-window /home/data/Coding/MadeOpen/Devsite\ Deployment/devsite-deployment & disown
+        ;;
+      "Devsite Dashboard")
+        hyprctl dispatch workspace empty
+        hyprctl dispatch exec "alacritty -e bash -ic 'cd /home/data/Coding/MadeOpen/Code/DevsiteDashboard && opencode'"
+        ;;
+      "Devsite Dashboard (VS)")
+        code --new-window /home/data/Coding/MadeOpen/Code/DevsiteDashboard & disown
+        ;;
       "GitNuro")
         export _JAVA_AWT_WM_NONREPARENTING=1
         java -jar /home/data/Applications/Gitnuro-linux-x86_64-1.4.3.jar & disown
@@ -54,52 +68,57 @@ work_menu() {
 
 # Function: show projects submenu
 projects_menu() {
-    project_options="Dotfiles\nProject Management\nOmniEcho\nAnsible\nAnAuto\nRising Tides\nInfrastructure Docs\nDotfiles (VS)\nOmniEcho (VS)\nAnsible (VS)\nAnAuto (VS)\nInfrastructure Docs (VS)"
+    project_options="Dotfiles (Both)\nProject Management\nOmniEcho (Both)\nInfrastructure\nAnAuto (Both)\nRising Tides\nInfrastructure Docs (Both)\nPlanka AI Integration (Both)\nAI Agents (Both)\nAnsible (VS)\nOpenTofu (VS)"
     project_choice=$(echo -e "$project_options" | rofi -dmenu -theme ~/.config/rofi/themes/projects-menu.rasi -p "Projects" -i)
 
       case "$project_choice" in
-        "Dotfiles")
+        "Dotfiles (Both)")
           hyprctl dispatch workspace empty
           hyprctl dispatch exec "alacritty -e bash -ic 'cd /home/richard/.dotfiles && opencode'"
-          ;;
-        "Dotfiles (VS)")
           code --new-window /home/richard/.dotfiles & disown
           ;;
         "Project Management")
           hyprctl dispatch workspace empty
           hyprctl dispatch exec "alacritty -e bash -ic 'cd /home/data/Coding/zProjects && opencode'"
           ;;
-        "OmniEcho")
+        "OmniEcho (Both)")
           hyprctl dispatch workspace empty
           hyprctl dispatch exec "alacritty -e bash -ic 'cd /home/data/Coding/OmniEcho/code && opencode'"
-          ;;
-        "OmniEcho (VS)")
           code --new-window /home/data/Coding/OmniEcho/code & disown
           ;;
-        "Ansible")
+        "Infrastructure")
           hyprctl dispatch workspace empty
-          hyprctl dispatch exec "alacritty -e bash -ic 'cd \"/home/data/Synced/Main Bits/Local Hosting/\" && opencode'"
+          hyprctl dispatch exec "alacritty -e bash -ic 'cd \"/home/data/Synced/Main Bits/Local Hosting\" && opencode'"
           ;;
-        "Ansible (VS)")
-          code --new-window "/home/data/Synced/Main Bits/Local Hosting/Ansible" & disown
-          ;;
-        "AnAuto")
+        "AnAuto (Both)")
           hyprctl dispatch workspace empty
           hyprctl dispatch exec "alacritty -e bash -ic 'cd /home/data/Coding/AnAuto && opencode'"
-          ;;
-        "AnAuto (VS)")
           code --new-window /home/data/Coding/AnAuto & disown
           ;;
         "Rising Tides")
           hyprctl dispatch workspace empty
           hyprctl dispatch exec "alacritty -e bash -ic 'cd \"/home/data/Synced/Main Bits/Games/Roleplay/Campaigns/Rising Tides\" && opencode'"
           ;;
-        "Infrastructure Docs")
+        "Infrastructure Docs (Both)")
           hyprctl dispatch workspace empty
           hyprctl dispatch exec "alacritty -e bash -ic 'cd \"/home/data/Synced/Main Bits/Local Hosting/infrastructure-documentation\" && opencode'"
-          ;;
-        "Infrastructure Docs (VS)")
           code --new-window "/home/data/Synced/Main Bits/Local Hosting/infrastructure-documentation" & disown
+          ;;
+        "Planka AI Integration (Both)")
+          hyprctl dispatch workspace empty
+          hyprctl dispatch exec "alacritty -e bash -ic 'cd /home/data/Coding/Utilities/kanbn-cli && opencode'"
+          code --new-window "/home/data/Coding/Utilities/kanbn-cli" & disown
+          ;;
+        "AI Agents (Both)")
+          hyprctl dispatch workspace empty
+          hyprctl dispatch exec "alacritty -e bash -ic 'cd \"/home/data/Coding/OpencodeAgents\" && opencode'"
+          code --new-window "/home/data/Coding/OpencodeAgents" & disown
+          ;;
+        "Ansible (VS)")
+          code --new-window "/home/data/Synced/Main Bits/Local Hosting/Ansible" & disown
+          ;;
+        "OpenTofu (VS)")
+          code --new-window "/home/data/Synced/Main Bits/Local Hosting/open-tofu" & disown
           ;;
         *)
           echo "No valid project selected."

@@ -79,13 +79,28 @@ window.linksData = {
                     "target": "_blank"
                   },
                   {
-                    "name": "Claude",
-                    "url": "https://claude.ai/chat",
+                    "name": "Z.ai Usage",
+                    "url": "https://z.ai/manage-apikey/subscription",
+                    "target": "_blank"
+                  },
+                  {
+                    "name": "Github Copilot",
+                    "url": "https://github.com/copilot",
                     "target": "_blank"
                   },
                   {
                     "name": "Perplexity",
                     "url": "https://www.perplexity.ai/search",
+                    "target": "_blank"
+                  },
+                  {
+                    "name": "Venice.ai",
+                    "url": "https://venice.ai/settings/api",
+                    "target": "_blank"
+                  },
+                  {
+                    "name": "Grok",
+                    "url": "https://grok.com/",
                     "target": "_blank"
                   }
                 ]

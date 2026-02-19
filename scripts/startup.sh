@@ -4,7 +4,6 @@
 
 # Launch applications
 firefox &
-sleep 12
 keepassxc &
 thunderbird &
 
