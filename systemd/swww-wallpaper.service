@@ -5,7 +5,7 @@ After=hyprland-session.target
 
 [Service]
 Type=oneshot
-ExecStart=%h/.dotfiles/scripts/swww.sh
+ExecStart=%h/.dotfiles/scripts/hyprland/swww.sh
 
 [Install]
 WantedBy=default.target

@@ -19,7 +19,7 @@ alias up='update && upall'
 alias ansible-playbook="ansible-playbook --inventory=./inventory.ini"
 alias gitnuro='env _JAVA_AWT_WM_NONREPARENTING=1 java -jar /home/data/Applications/Gitnuro-linux-x86_64-1.4.3.jar'
 
-alias fixicons='~/.dotfiles/scripts/fix-icons.sh'
+#alias fixicons='~/.dotfiles/scripts/fix-icons.sh'
 
 #source /usr/share/nvm/init-nvm.sh
 export PATH="$HOME/.local/bin:$PATH"

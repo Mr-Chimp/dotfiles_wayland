@@ -2,12 +2,10 @@
 set -euo pipefail
 
 PACKAGES=(
-    greetd
-    greetd-regreet
-    cage
+    ly
 )
 
-echo "==> Installing LightDM"
+echo "==> Installing ly display manager"
 sudo pacman -S --needed --noconfirm "${PACKAGES[@]}"
-echo "==> LightDM setup complete!"
+echo "==> ly display manager setup complete!"
 

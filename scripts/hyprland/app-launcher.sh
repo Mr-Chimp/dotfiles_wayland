@@ -148,10 +148,10 @@ case "$choice" in
     /home/data/Applications/Obsidian-1.8.4.AppImage & disown
     ;;
   Start-up)
-    $HOME/.dotfiles/scripts/startup.sh & disown
-    ;;
+$HOME/.dotfiles/scripts/hyprland/startup.sh & disown
+  ;;
   "Update Check")
-    $HOME/.dotfiles/scripts/update_check.sh & disown
+    $HOME/.dotfiles/scripts/hyprland/update_check.sh & disown
     ;;
   "Night Light")
     if pgrep -x hyprsunset > /dev/null; then

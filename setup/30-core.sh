@@ -58,11 +58,8 @@ PACKAGES=(
     firefox
     mako
     fuse2
-    gammastep
     reflector
     qt6-multimedia-ffmpeg
-    podman
-    podman-compose
     tree
     mkvtoolnix-gui
     mpv
@@ -75,7 +72,6 @@ PACKAGES=(
     gst-plugins-bad
     gst-plugins-ugly
     gst-libav
-    ffmpeg
     ghome-keyring
     android-tools
 )

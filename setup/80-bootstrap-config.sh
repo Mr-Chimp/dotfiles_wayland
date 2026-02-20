@@ -33,6 +33,7 @@ LINKS=(
     "$REPO_DIR/.bash_profile:$HOME/.bash_profile"
     "$REPO_DIR/systemd/swww-wallpaper.service:$HOME/.config/systemd/user/swww-wallpaper.service"
     "$REPO_DIR/systemd/swww-wallpaper.timer:$HOME/.config/systemd/user/swww-wallpaper.timer"
+    "$REPO_DIR/systemd/hyprland-session.target:$HOME/.config/systemd/user/hyprland-session.target"
     "$REPO_DIR/.bashrc:$HOME/.bashrc"
     "$REPO_DIR/opencode/start.ts:$HOME/.config/opencode/tool/start.ts"
     

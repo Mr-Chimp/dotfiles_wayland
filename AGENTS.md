@@ -8,8 +8,8 @@ Personal Arch Linux dotfiles for Hyprland (Wayland compositor) - shell scripts, 
 ## Testing/Running
 - **Apply config changes**: `ln -sf ~/.dotfiles/config/hypr/hyprland.conf ~/.config/hypr/hyprland.conf` (or run `setup/80-bootstrap-config.sh`)
 - **Reload Hyprland**: `hyprctl reload` or `Super+Shift+R`
-- **Restart Waybar**: `scripts/bars.sh`
-- **Test scripts**: Execute directly, e.g. `bash scripts/app-launcher.sh`
+- **Restart Waybar**: `scripts/hyprland/bars.sh`
+- **Test scripts**: Execute directly, e.g. `bash scripts/hyprland/app-launcher.sh`
 - **No build/lint/test suite** - manual testing required
 
 ## Code Style
@@ -22,7 +22,7 @@ Personal Arch Linux dotfiles for Hyprland (Wayland compositor) - shell scripts, 
 
 ## Key Components
 - **Hyprland config**: `config/hypr/` - modular config (main, keybinds, monitors, workspaces, windowrules)
-- **App launcher**: `scripts/app-launcher.sh` - Wofi menu for Work/Projects/Apps, Night Light toggle (launched with `Super+Return`)
+- **App launcher**: `scripts/hyprland/app-launcher.sh` - Wofi menu for Work/Projects/Apps, Night Light toggle (launched with `Super+Return`)
 - **Keybinds**: `config/hypr/keybinds.conf` - keyboard shortcuts (Super+Return launches app-launcher.sh)
 - **Projects**: Dotfiles, `/home/data/Coding/zProjects`, `/home/data/Coding/OmniEcho/code`
 - **Bootstrap**: `setup/80-bootstrap-config.sh` - creates symlinks from repo to `~/.config/`

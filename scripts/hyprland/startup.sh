@@ -1,6 +1,6 @@
 #!/bin/bash
 
-$HOME/.dotfiles/scripts/update_check.sh &
+$HOME/.dotfiles/scripts/hyprland/update_check.sh &
 
 # Launch applications
 firefox &

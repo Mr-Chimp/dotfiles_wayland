@@ -1,6 +1,6 @@
 # Dotfiles
 
-Personal configuration files for my Arch Linux system with Hyprland.
+Personal configuration files for my Arch Linux system with Hyprland (Wayland) and future XLibre/BSPWM (X11) compatibility.
 
 ## Components
 
@@ -37,9 +37,10 @@ Personal configuration files for my Arch Linux system with Hyprland.
 ├── icons/              # Icon themes, cursor themes, and icon overrides (configured via overrides.sh)
 ├── nemo/               # File manager actions and scripts
 ├── scripts/            # Utility scripts
+│   ├── bspwm/         # BSPWM/XLibre scripts
+│   └── hyprland/      # Hyprland/Wayland scripts
 ├── setup/              # Installation and setup scripts
 ├── systemd/            # Systemd units
-└── work/               # Work-related scripts
 ```
 
 ## Installation
@@ -58,12 +59,18 @@ cd setup
 
 ## Scripts
 
-- `launcher.sh` - Application launcher
-- `powermenu.sh` - Power management menu
-- `startup.sh` - Startup applications
-- `workspace-navigator.sh` - Workspace switching
-- `swap_background.sh` - Wallpaper rotation
+### Hyprland/Wayland
+- `scripts/hyprland/app-launcher.sh` - Application launcher with Work/Projects/Apps menus
+- `scripts/hyprland/powermenu.sh` - Power management menu
+- `scripts/hyprland/startup.sh` - Startup applications
+- `scripts/hyprland/workspace-navigator.sh` - Workspace switching
+- `scripts/hyprland/swww.sh` - Wallpaper rotation (for Hyprland)
+
+### BSPWM/XLibre
+- `scripts/bspwm/gimp-launch.sh` - GIMP launcher for BSPWM
+- `scripts/bspwm/tag-navigator.sh` - Tag/workspace navigation for River/BSPWM
+- `scripts/bspwm/swap_background.sh` - Wallpaper rotation (feh-based for X11)
 
 ## Notes
 
-Configuration optimized for AMD graphics with Wayland.
+Configuration optimized for AMD graphics with Wayland. Includes compatibility for future XLibre/BSPWM setup.
