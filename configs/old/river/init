@@ -1,0 +1,12 @@
+#!/bin/sh
+
+# Set keyboard layout
+riverctl keyboard-layout gb
+
+# Set repeat rate
+riverctl set-repeat 50 300
+
+# Configure output (similar to your Hyprland setup)
+riverctl output DP-2 pos 0 0
+riverctl output HDMI-A-1 pos 1920 0
+riverctl output DP-1 pos 3840 0

@@ -1,0 +1,21 @@
+{
+  "$schema": "https://opencode.ai/config.json",
+  "model": "zai-coding-plan/glm-4.7",
+  "agent": {
+    "build": {
+      "disable": false
+    },
+    "plan": {
+      "disable": false
+    },
+    "go": {
+      "disable": true
+    },
+    "planning": {
+      "mode": "primary"
+    },
+    "planka": {
+      "mode": "subagent"
+    }
+  }
+}

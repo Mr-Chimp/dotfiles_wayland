@@ -1,0 +1,63 @@
+#!/bin/sh
+
+# Set keyboard layout
+riverctl keyboard-layout gb
+
+# Set repeat rate
+riverctl set-repeat 50 300
+
+# Configure output (similar to your Hyprland setup)
+riverctl output DP-2 pos 0 0
+riverctl output HDMI-A-1 pos 1920 0
+riverctl output DP-1 pos 3840 0
+
+# Set up tags for each monitor (like bspwm -d)
+# DP-1: tags 1-11 (I, II, III, IV, V, VI, VII, VIII, IX, X, Game)
+# HDMI-A-1: tags 12-17 (Internet, Email, 1, 2, 3, Steam)  
+# DP-2: tags 18-23 (Passwords, Teams, A, B, C, D)
+# Define tag constants for readability
+DP1_TAGS="0x7FF"        # Bits 0-10 (tags 1-11)
+HDMI1_TAGS="0x1F000"    # Bits 12-17  
+DP2_TAGS="0x7C0000"     # Bits 18-22
+
+# Assign tags to outputs
+riverctl focus-output DP-1
+riverctl set-view-tags $DP1_TAGS
+
+riverctl focus-output HDMI-A-1
+riverctl set-view-tags $HDMI1_TAGS
+
+riverctl focus-output DP-2  
+riverctl set-view-tags $DP2_TAGS
+# Sequential workspace navigation - THIS IS WHAT YOU WANT
+riverctl map normal Control+Alt Right spawn ~/.dotfiles/scripts/tag-navigator.sh next
+riverctl map normal Control+Alt Left spawn ~/.dotfiles/scripts/tag-navigator.sh prev
+
+# Lock screen & power menu
+riverctl map normal Super L spawn swaylock
+riverctl map normal Super Delete spawn /home/richard/.dotfiles/scripts/powermenu.sh
+
+# Move windows between workspaces
+riverctl map normal Super+Shift Right spawn ~/.dotfiles/scripts/tag-navigator.sh move-next
+riverctl map normal Super+Shift Left spawn ~/.dotfiles/scripts/tag-navigator.sh move-prev
+
+# Move windows between monitors
+riverctl map normal Super+Alt Right send-to-output next
+riverctl map normal Super+Alt Left send-to-output previous
+
+# Focus directions (within current workspace)
+riverctl map normal Super Up focus-view up
+riverctl map normal Super Right focus-view next  
+riverctl map normal Super Down focus-view down
+riverctl map normal Super Left focus-view previous
+
+# Window management
+riverctl map normal Super W close
+riverctl map normal Super+Shift W close
+
+# Layout toggles
+riverctl map normal Super M toggle-fullscreen
+riverctl map normal Super+Alt Space toggle-fullscreen
+
+# Start Waybar
+waybar &

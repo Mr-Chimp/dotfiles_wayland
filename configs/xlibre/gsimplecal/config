@@ -1,0 +1,8 @@
+mainwindow_sticky = 1
+mark_today = 1
+mainwindow_keep_above = 1
+mainwindow_skip_taskbar = 1
+mainwindow_position = none
+mainwindow_xoffset = 1565
+mainwindow_yoffset = 170
+close_on_mouseleave = 1

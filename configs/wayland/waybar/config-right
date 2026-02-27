@@ -1,0 +1,32 @@
+{
+    "layer": "top",
+    "position": "top",
+    "height": 30,
+    
+    "output": ["DP-1"],
+    
+    "modules-left": ["hyprland/workspaces"],
+    "modules-center": [],
+    "modules-right": ["tray", "clock#weekday", "clock#time"],
+    
+    "hyprland/workspaces": {
+        "format": "{name}",
+        "on-click": "activate"
+    },
+    "tray": {
+        "spacing": 10
+    },
+    
+    "clock#weekday": {
+        "format": "{:%A}",
+        "tooltip": false,
+        "class": "weekday"
+    },
+    
+    "clock#time": {
+        "format": "{:%H:%M}",
+        "format-alt": "{:%Y-%m-%d %H:%M:%S}",
+        "tooltip-format": "",
+        "interval": 1
+    }
+}

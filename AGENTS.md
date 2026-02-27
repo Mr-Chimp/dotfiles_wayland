@@ -27,3 +27,10 @@ Personal Arch Linux dotfiles for Hyprland (Wayland compositor) - shell scripts, 
 - **Projects**: Dotfiles, `/home/data/Coding/zProjects`, `/home/data/Coding/OmniEcho/code`
 - **Bootstrap**: `setup/80-bootstrap-config.sh` - creates symlinks from repo to `~/.config/`
 - **Rofi themes**: `config/rofi/themes/` - styling for Projects/Work menus (projects-menu.rasi, work-menu.rasi)
+
+## Deployment Rules
+- **NEVER** run ln, cp, or mv on any directory outside ~/.dotfiles
+- **NEVER** manually create symlinks or copy files outside this repository
+- **NEVER** write scripts to deploy agents - use existing system setup scripts
+- Let the bootstrap/setup scripts handle all deployments
+- Part of the dotfiles project's purpose is centralized setup via existing scripts

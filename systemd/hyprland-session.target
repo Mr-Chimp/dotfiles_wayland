@@ -1,8 +1,0 @@
-[Unit]
-Description=Hyprland session
-Requires=graphical-session.target
-After=graphical-session.target
-OnFailure=graphical-session.target
-
-[Install]
-WantedBy=graphical-session.target

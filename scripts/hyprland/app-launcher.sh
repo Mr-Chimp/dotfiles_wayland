@@ -106,8 +106,8 @@ projects_menu() {
           ;;
         "Planka AI Integration (Both)")
           hyprctl dispatch workspace empty
-          hyprctl dispatch exec "alacritty -e bash -ic 'cd /home/data/Coding/Utilities/kanbn-cli && opencode'"
-          code --new-window "/home/data/Coding/Utilities/kanbn-cli" & disown
+          hyprctl dispatch exec "alacritty -e bash -ic 'cd /home/data/CodeArchive/planka-cli && opencode'"
+          code --new-window "/home/data/CodeArchive/planka-cli" & disown
           ;;
         "AI Agents (Both)")
           hyprctl dispatch workspace empty

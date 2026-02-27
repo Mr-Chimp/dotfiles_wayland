@@ -13,30 +13,29 @@ REPO_URL="git@github.com:USERNAME/dotfiles.git"
 #"$REPO_DIR/config/dmenu/dmenu_launch.sh:$HOME/.local/bin/dmenu_launch.sh"
 LINKS=(
     #"$REPO_DIR/config/sway:$HOME/.config/sway"
-    "$REPO_DIR/config/wayland/hypr/hyprlock.conf:$HOME/.config/hypr/hyprlock.conf"
-    "$REPO_DIR/config/wayland/hypr/hyprland.conf:$HOME/.config/hypr/hyprland.conf"
-    "$REPO_DIR/config/wayland/hypr/hypridle.conf:$HOME/.config/hypr/hypridle.conf"
-    "$REPO_DIR/config/wayland/waybar/config-left:$HOME/.config/waybar/config-left"
-    "$REPO_DIR/config/wayland/waybar/config-middle:$HOME/.config/waybar/config-middle"
-    "$REPO_DIR/config/wayland/waybar/config-right:$HOME/.config/waybar/config-right"
-    "$REPO_DIR/config/wayland/waybar/style.css:$HOME/.config/waybar/style.css"
-    "$REPO_DIR/config/wayland/mako/config:$HOME/.config/mako/config"
-    "$REPO_DIR/config/wayland/wofi/config:$HOME/.config/wofi/config"
-    "$REPO_DIR/config/wayland/wofi/style.css:$HOME/.config/wofi/style.css"
-    "$REPO_DIR/config/shared/rofi/config.rasi:$HOME/.config/rofi/config.rasi"
-    "$REPO_DIR/config/shared/rofi/themes/colors.rasi:$HOME/.config/rofi/themes/colors.rasi"
-    "$REPO_DIR/config/shared/rofi/themes/fonts.rasi:$HOME/.config/rofi/themes/fonts.rasi"
-    "$REPO_DIR/config/shared/rofi/themes/projects-menu.rasi:$HOME/.config/rofi/themes/projects-menu.rasi"
-    "$REPO_DIR/config/shared/rofi/themes/work-menu.rasi:$HOME/.config/rofi/themes/work-menu.rasi"
-    "$REPO_DIR/config/xlibre/gsimplecal/config:$HOME/.config/gsimplecal/config"
-    "$REPO_DIR/config/xlibre/barrier.conf:$HOME/.config/barrier.conf"
-    "$REPO_DIR/.bash_profile:$HOME/.bash_profile"
-    "$REPO_DIR/systemd/swww-wallpaper.service:$HOME/.config/systemd/user/swww-wallpaper.service"
-    "$REPO_DIR/systemd/swww-wallpaper.timer:$HOME/.config/systemd/user/swww-wallpaper.timer"
-    "$REPO_DIR/systemd/hyprland-session.target:$HOME/.config/systemd/user/hyprland-session.target"
-    "$REPO_DIR/.bashrc:$HOME/.bashrc"
-    "$REPO_DIR/opencode/start.ts:$HOME/.config/opencode/tool/start.ts"
-    
+    "$REPO_DIR/configs/wayland/hypr/hyprlock.conf:$HOME/.config/hypr/hyprlock.conf"
+    "$REPO_DIR/configs/wayland/hypr/hyprland.conf:$HOME/.config/hypr/hyprland.conf"
+    "$REPO_DIR/configs/wayland/hypr/hypridle.conf:$HOME/.config/hypr/hypridle.conf"
+    "$REPO_DIR/configs/wayland/waybar/config-left:$HOME/.config/waybar/config-left"
+    "$REPO_DIR/configs/wayland/waybar/config-middle:$HOME/.config/waybar/config-middle"
+    "$REPO_DIR/configs/wayland/waybar/config-right:$HOME/.config/waybar/config-right"
+    "$REPO_DIR/configs/wayland/waybar/style.css:$HOME/.config/waybar/style.css"
+    "$REPO_DIR/configs/wayland/mako/config:$HOME/.config/mako/config"
+    "$REPO_DIR/configs/wayland/wofi/config:$HOME/.config/wofi/config"
+    "$REPO_DIR/configs/wayland/wofi/style.css:$HOME/.config/wofi/style.css"
+    "$REPO_DIR/configs/shared/rofi/config.rasi:$HOME/.config/rofi/config.rasi"
+    "$REPO_DIR/configs/shared/rofi/themes/colors.rasi:$HOME/.config/rofi/themes/colors.rasi"
+    "$REPO_DIR/configs/shared/rofi/themes/fonts.rasi:$HOME/.config/rofi/themes/fonts.rasi"
+    "$REPO_DIR/configs/shared/rofi/themes/projects-menu.rasi:$HOME/.config/rofi/themes/projects-menu.rasi"
+    "$REPO_DIR/configs/shared/rofi/themes/work-menu.rasi:$HOME/.config/rofi/themes/work-menu.rasi"
+    "$REPO_DIR/configs/xlibre/gsimplecal/config:$HOME/.config/gsimplecal/config"
+    "$REPO_DIR/configs/xlibre/barrier.conf:$HOME/.config/barrier.conf"
+    "$REPO_DIR/system/.bash_profile:$HOME/.bash_profile"
+    "$REPO_DIR/system/systemd/swww-wallpaper.service:$HOME/.config/systemd/user/swww-wallpaper.service"
+    "$REPO_DIR/system/systemd/swww-wallpaper.timer:$HOME/.config/systemd/user/swww-wallpaper.timer"
+    "$REPO_DIR/system/systemd/hyprland-session.target:$HOME/.config/systemd/user/hyprland-session.target"
+    "$REPO_DIR/system/.bashrc:$HOME/.bashrc"
+
     # XLibre/BSPWM configs (commented out - enable when switching to BSPWM)
     #"$REPO_DIR/config/xlibre/bspwm/bspwmrc:$HOME/.config/bspwm/bspwmrc"
     #"$REPO_DIR/config/xlibre/sxhkd/sxhkdrc:$HOME/.config/sxhkd/sxhkdrc"
@@ -53,6 +52,10 @@ LINKS=(
     #"$REPO_DIR/systemd/xsession.target:$HOME/.config/systemd/user/xsession.target"
     #"$REPO_DIR/config/shared/rofi/powermenu/theme.rasi:$HOME/.config/rofi/powermenu/theme.rasi"
     #"$REPO_DIR/config/shared/rofi/launcher/theme.rasi:$HOME/.config/rofi/launcher/theme.rasi"
+)
+
+# Files to copy instead of symlink (for tools, etc.)
+COPIES=(
 )
 
 # === SCRIPT ===
@@ -73,12 +76,26 @@ for entry in "${LINKS[@]}"; do
     mkdir -p "$(dirname "$dest")"
 done
 
+for entry in "${COPIES[@]}"; do
+    dest="${entry#*:}"
+    mkdir -p "$(dirname "$dest")"
+done
+
 # 3. Symlink files
 for entry in "${LINKS[@]}"; do
     src="${entry%%:*}"
     dest="${entry#*:}"
     echo "[*] Linking $src → $dest"
     ln -sf "$src" "$dest"
+done
+
+# 4. Copy files (for tools that need to be in the right location)
+for entry in "${COPIES[@]}"; do
+    src="${entry%%:*}"
+    dest="${entry#*:}"
+    echo "[*] Copying $src → $dest"
+    mkdir -p "$(dirname "$dest")"
+    cp -f "$src" "$dest"
 done
 
 echo "[✔] Done! Your config is now live."
