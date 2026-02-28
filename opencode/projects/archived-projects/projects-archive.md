@@ -85,6 +85,7 @@ Item IDs come from the existing file or folder name.
 - never rename existing files
 - always reference items using their current name
 - Registry Structure
+- Ignore hidden files and folders (those prefixed with a period '.')
 
 Example structure:
 
