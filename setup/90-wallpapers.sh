@@ -13,4 +13,4 @@ sudo chmod 644 "$WALLPAPER_DEST_DIR"/*
 
 
 systemctl --user daemon-reload
-systemctl --user enable --now swww-wallpaper.timer
+systemctl --user enable --now awww-wallpaper.timer

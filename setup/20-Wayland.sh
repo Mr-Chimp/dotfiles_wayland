@@ -7,7 +7,7 @@ PACKAGES=(
     hyprlock
     hypridle
     xdg-desktop-portal-hyprland
-    swww
+    awww
 )
 
 echo "==> Installing core packages"

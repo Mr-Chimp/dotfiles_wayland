@@ -1,0 +1,11 @@
+[Unit]
+Description=Change wallpapers every minute (Hyprland)
+PartOf=awww-wallpaper.service
+BindsTo=hyprland-session.target
+
+[Timer]
+OnBootSec=30s
+OnUnitActiveSec=1min
+
+[Install]
+WantedBy=hyprland-session.target

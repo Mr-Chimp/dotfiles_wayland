@@ -1,0 +1,11 @@
+[Unit]
+Description=Random wallpaper per monitor with feh
+Requires=xsession.target
+After=xsession.target
+
+[Service]
+Type=oneshot
+ExecStart=%h/.dotfiles/scripts/bspwm/feh-wallpaper.sh
+
+[Install]
+WantedBy=xsession.target

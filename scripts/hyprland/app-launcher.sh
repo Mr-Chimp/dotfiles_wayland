@@ -1,171 +1,47 @@
 #!/bin/bash
 
-# Function: show work submenu
-work_menu() {
-    work_options="Platform\nInfrastructure\nSockets\nWorkers\nGitNuro\nTeams\nPlatform (VS)\nInfrastructure (VS)\nSockets (VS)\nWorkers (VS)\nDevsite Deployment\nDevsite Deployment (VS)\nDevsite Dashboard\nDevsite Dashboard (VS)\nConfig Editing"
-    work_choice=$(echo -e "$work_options" | rofi -dmenu -theme ~/.config/rofi/themes/work-menu.rasi -p "Work" -i)
-
-    case "$work_choice" in
-      "Platform")
-        hyprctl dispatch workspace empty
-        hyprctl dispatch exec "alacritty -e bash -ic 'cd /home/data/Coding/MadeOpen/platform && opencode'"
-        ;;
-      "Platform (VS)")
-        code --new-window /home/data/Coding/MadeOpen/platform & disown
-        ;;
-      "Infrastructure")
-        hyprctl dispatch workspace empty
-        hyprctl dispatch exec "alacritty -e bash -ic 'cd /home/data/Coding/MadeOpen/Infrastructure && opencode'"
-        ;;
-      "Infrastructure (VS)")
-        code --new-window /home/data/Coding/MadeOpen/Infrastructure & disown
-        ;;
-      "Sockets")
-        hyprctl dispatch workspace empty
-        hyprctl dispatch exec "alacritty -e bash -ic 'cd /home/data/Coding/MadeOpen/Platform_sockets && opencode'"
-        ;;
-      "Sockets (VS)")
-        code --new-window /home/data/Coding/MadeOpen/Platform_sockets & disown
-        ;;
-      "Workers")
-        hyprctl dispatch workspace empty
-        hyprctl dispatch exec "alacritty -e bash -ic 'cd /home/data/Coding/MadeOpen/Platform_Workers && opencode'"
-        ;;
-      "Workers (VS)")
-        code --new-window /home/data/Coding/MadeOpen/Platform_Workers & disown
-        ;;
-      "Devsite Deployment")
-        hyprctl dispatch workspace empty
-        hyprctl dispatch exec "alacritty -e bash -ic 'cd /home/data/Coding/MadeOpen/Devsite\ Deployment/devsite-deployment && opencode'"
-        ;;
-      "Devsite Deployment (VS)")
-        code --new-window /home/data/Coding/MadeOpen/Devsite\ Deployment/devsite-deployment & disown
-        ;;
-      "Devsite Dashboard")
-        hyprctl dispatch workspace empty
-        hyprctl dispatch exec "alacritty -e bash -ic 'cd /home/data/Coding/MadeOpen/Code/DevsiteDashboard && opencode'"
-        ;;
-      "Devsite Dashboard (VS)")
-        code --new-window /home/data/Coding/MadeOpen/Code/DevsiteDashboard & disown
-        ;;
-      "GitNuro")
-        export _JAVA_AWT_WM_NONREPARENTING=1
-        java -jar /home/data/Applications/Gitnuro-linux-x86_64-1.4.3.jar & disown
-        ;;
-      "Teams")
-        nohup /home/data/Applications/teams-for-linux-2.1.4.AppImage  > /home/data/Applications/teams.log 2>&1 &
-        ;;
-      "Config Editing")
-        hyprctl dispatch workspace empty
-        hyprctl dispatch exec nemo
-        hyprctl dispatch exec leafpad
-        ;;
-      *)
-        echo "No valid work option selected."
-        ;;
-    esac
+show_menu() {
+    local options="$1"
+    local prompt="$2"
+    echo -e "$options" | wofi --dmenu --prompt "$prompt" --insensitive --height 400 --width 500
 }
 
-# Function: show projects submenu
-projects_menu() {
-    project_options="Dotfiles (Both)\nProject Management\nOmniEcho (Both)\nInfrastructure\nAnAuto (Both)\nRising Tides\nInfrastructure Docs (Both)\nPlanka AI Integration (Both)\nAI Agents (Both)\nAnsible (VS)\nOpenTofu (VS)"
-    project_choice=$(echo -e "$project_options" | rofi -dmenu -theme ~/.config/rofi/themes/projects-menu.rasi -p "Projects" -i)
-
-      case "$project_choice" in
-        "Dotfiles (Both)")
-          hyprctl dispatch workspace empty
-          hyprctl dispatch exec "alacritty -e bash -ic 'cd $HOME/.dotfiles && opencode'"
-          code --new-window $HOME/.dotfiles & disown
-          ;;
-        "Project Management")
-          hyprctl dispatch workspace empty
-          hyprctl dispatch exec "alacritty -e bash -ic 'cd /home/data/Coding/zProjects && opencode'"
-          ;;
-        "OmniEcho (Both)")
-          hyprctl dispatch workspace empty
-          hyprctl dispatch exec "alacritty -e bash -ic 'cd /home/data/Coding/OmniEcho/code && opencode'"
-          code --new-window /home/data/Coding/OmniEcho/code & disown
-          ;;
-        "Infrastructure")
-          hyprctl dispatch workspace empty
-          hyprctl dispatch exec "alacritty -e bash -ic 'cd \"/home/data/Synced/Main Bits/Local Hosting\" && opencode'"
-          ;;
-        "AnAuto (Both)")
-          hyprctl dispatch workspace empty
-          hyprctl dispatch exec "alacritty -e bash -ic 'cd /home/data/Coding/AnAuto && opencode'"
-          code --new-window /home/data/Coding/AnAuto & disown
-          ;;
-        "Rising Tides")
-          hyprctl dispatch workspace empty
-          hyprctl dispatch exec "alacritty -e bash -ic 'cd \"/home/data/Synced/Main Bits/Games/Roleplay/Campaigns/Rising Tides\" && opencode'"
-          ;;
-        "Infrastructure Docs (Both)")
-          hyprctl dispatch workspace empty
-          hyprctl dispatch exec "alacritty -e bash -ic 'cd \"/home/data/Synced/Main Bits/Local Hosting/infrastructure-documentation\" && opencode'"
-          code --new-window "/home/data/Synced/Main Bits/Local Hosting/infrastructure-documentation" & disown
-          ;;
-        "Planka AI Integration (Both)")
-          hyprctl dispatch workspace empty
-          hyprctl dispatch exec "alacritty -e bash -ic 'cd /home/data/CodeArchive/planka-cli && opencode'"
-          code --new-window "/home/data/CodeArchive/planka-cli" & disown
-          ;;
-        "AI Agents (Both)")
-          hyprctl dispatch workspace empty
-          hyprctl dispatch exec "alacritty -e bash -ic 'cd \"/home/data/Coding/OpencodeAgents\" && opencode'"
-          code --new-window "/home/data/Coding/OpencodeAgents" & disown
-          ;;
-        "Ansible (VS)")
-          code --new-window "/home/data/Synced/Main Bits/Local Hosting/Ansible" & disown
-          ;;
-        "OpenTofu (VS)")
-          code --new-window "/home/data/Synced/Main Bits/Local Hosting/open-tofu" & disown
-          ;;
-        *)
-          echo "No valid project selected."
-          ;;
-
-      esac
+show_submenu() {
+    local options="$1"
+    local prompt="$2"
+    echo -e "$options" | wofi --dmenu --prompt "$prompt" --insensitive --height 500 --width 800
 }
 
-# List of apps to choose from
-options="Work\nProjects\nNotes\nObsidian\nStart-up\nUpdate Check\nNight Light"
+go_to_workspace() {
+    hyprctl dispatch workspace empty
+}
 
-# Show wofi and capture choice
-choice=$(echo -e "$options" | wofi --dmenu --prompt "Launch app:" --insensitive --height 400 --width 500)
+launch_dev_terminal() {
+    local dir="$1"
+    hyprctl dispatch exec "alacritty -e bash -ic 'cd \"$dir\" && opencode'"
+}
 
-# Act on choice
-case "$choice" in
-  Work)
-    work_menu
-    ;;
-  Projects)
-    projects_menu
-    ;;
-  Notes)
-    /home/data/Applications/notesnook_linux_x86_64.AppImage & disown
-    ;;
-  Obsidian)
-    /home/data/Applications/Obsidian-1.8.4.AppImage & disown
-    ;;
-  Start-up)
-$HOME/.dotfiles/scripts/hyprland/startup.sh & disown
-  ;;
-  "Update Check")
-    $HOME/.dotfiles/scripts/hyprland/update_check.sh & disown
-    ;;
-  "Night Light")
+open_code() {
+    local dir="$1"
+    code --new-window "$dir" & disown
+}
+
+toggle_night_light() {
     if pgrep -x hyprsunset > /dev/null; then
-      pkill hyprsunset
-      hyprctl hyprsunset identity
-      notify-send "Night Light" "Disabled"
+        pkill hyprsunset
+        hyprctl hyprsunset identity
+        notify-send "Night Light" "Disabled"
     else
-      hyprctl hyprsunset identity & disown
-      sleep 0.5
-      hyprsunset --temperature 3700 & disown
-      notify-send "Night Light" "Enabled (3700K)"
+        hyprctl hyprsunset identity & disown
+        sleep 0.5
+        hyprsunset --temperature 3700 & disown
+        notify-send "Night Light" "Enabled (3700K)"
     fi
-    ;;
-  *)
-    echo "No valid option selected."
-    ;;
-esac
+}
+
+regen_lock_screen() {
+    notify-send "Lock Screen" "Hyprlock uses live backgrounds, no regen needed"
+}
+
+source "$HOME/.dotfiles/scripts/menu-actions.sh"
+show_main_menu

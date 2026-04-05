@@ -4,5 +4,4 @@ export XCURSOR_SIZE=24
 export ADW_DISABLE_PORTAL=1
 numlockx &
 
-#exec bspwm
-exec startxfce4
+exec bspwm

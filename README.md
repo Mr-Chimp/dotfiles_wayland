@@ -64,7 +64,7 @@ cd setup
 - `scripts/hyprland/powermenu.sh` - Power management menu
 - `scripts/hyprland/startup.sh` - Startup applications
 - `scripts/hyprland/workspace-navigator.sh` - Workspace switching
-- `scripts/hyprland/swww.sh` - Wallpaper rotation (for Hyprland)
+- `scripts/hyprland/awww.sh` - Wallpaper rotation (for Hyprland)
 
 ### BSPWM/XLibre
 - `scripts/bspwm/gimp-launch.sh` - GIMP launcher for BSPWM

@@ -7,6 +7,7 @@ AUR_PACKAGES=(
     brave-bin
     barrier
     betterlockscreen
+    nitrogen
     wdisplays
     opentofu
 )

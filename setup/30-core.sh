@@ -74,6 +74,10 @@ PACKAGES=(
     gst-libav
     ghome-keyring
     android-tools
+    openjdk
+    jdk17-openjdk
+    vulkan-devel
+    smartmontools
 )
 
 echo "==> Installing core packages"

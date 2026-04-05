@@ -22,11 +22,11 @@
     },
 
     "custom/vpn": {
-        "exec": "~/.dotfiles/configs/wayland/waybar/vpn-status.sh",
+        "exec": "~/.local/bin/vpn-status",
         "return-type": "json",
         "interval": 5,
-        "on-click": "~/.dotfiles/configs/wayland/waybar/vpn-on.sh",
-        "on-click-right": "~/.dotfiles/configs/wayland/waybar/vpn-off.sh",
+        "on-click": "~/.local/bin/vpn-on",
+        "on-click-right": "~/.local/bin/vpn-off",
         "format": "{}"
     }
 }

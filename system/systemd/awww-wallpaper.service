@@ -1,0 +1,12 @@
+[Unit]
+Description=Random wallpaper per monitor with awww
+Requires=hyprland-session.target
+After=hyprland-session.target
+BindsTo=hyprland-session.target
+
+[Service]
+Type=oneshot
+ExecStart=%h/.dotfiles/scripts/hyprland/awww.sh
+
+[Install]
+WantedBy=hyprland-session.target

@@ -1,0 +1,11 @@
+[Unit]
+Description=Change wallpapers every minute (X11/bspwm)
+PartOf=feh-wallpaper.service
+BindsTo=xsession.target
+
+[Timer]
+OnBootSec=30s
+OnUnitActiveSec=1min
+
+[Install]
+WantedBy=xsession.target

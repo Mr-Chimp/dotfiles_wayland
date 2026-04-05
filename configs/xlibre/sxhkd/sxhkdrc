@@ -1,0 +1,96 @@
+#
+# wm independent hotkeys
+#
+
+# terminal emulator
+super + t
+	setsid sakura >/tmp/sakura.log 2>&1 &
+
+# program launcher
+super + d
+	~/.local/bin/launcher
+
+super + Return
+	~/.local/bin/app-launcher
+
+control + alt + Right
+	bspc desktop -f next.local 
+
+control + alt + Left
+	bspc desktop -f prev.local
+
+# make sxhkd reload its configuration files:
+super + Escape
+	pkill -USR1 -x sxhkd
+
+super + l
+	betterlockscreen -l blur
+
+super + Delete
+	~/.local/bin/powermenu
+
+#
+# Moving Nodes between desktop & focus
+#
+super + shift + {Right, Left}
+	bspc node -d {next, prev} 
+
+super + alt + {Right, Left}
+	bspc node -m {next, prev}
+
+super + {Up, Right, Down, Left}	
+	bspc node -f {north,east,south,west}
+
+#
+# bspwm hotkeys
+#
+
+# quit/restart bspwm
+super + alt + {q,r}
+	bspc {quit,wm -r}
+
+# close and kill
+super + {_,shift + }w
+	bspc node -{c,k}
+
+# alternate between the tiled and monocle layout
+super + m
+	bspc desktop -l next
+
+# send the newest marked node to the newest preselected node
+super + y
+	bspc node newest.marked.local -n newest.!automatic.local
+
+# swap the current node and the biggest window
+super + g
+	bspc node -s biggest.window
+
+#
+# state/flags
+#
+super + alt + d
+	bspc node -t tiled
+	
+super + alt + f
+	bspc node -t ~floating
+
+super + space
+	bspc node -t ~floating
+
+super + alt + space
+	bspc node -t fullscreen
+
+Print
+	flameshot gui
+
+#
+# move/resize
+#
+
+# expand a window by moving one of its side outward
+super + alt + {h,j,k,l}
+	bspc node -z {left -20 0,bottom 0 20,top 0 -20,right 20 0}
+
+# contract a window by moving one of its side inward
+super + alt + shift + {h,j,k,l}
+	bspc node -z {right -20 0,top 0 20,bottom 0 -20,left 20 0}
