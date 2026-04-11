@@ -2,9 +2,10 @@
 
 pgrep -x sxhkd > /dev/null || sxhkd &
 
-xrandr --output DisplayPort-1 --pos 0x0 --primary \
+xrandr --output DisplayPort-1 --pos 0x0  \
        --output HDMI-A-0 --pos 1920x0 \
-       --output DisplayPort-0 --pos 3840x0
+       --output DisplayPort-0 --pos 3840x0 --primary
+
 
 bspc monitor DisplayPort-1 -d Passwords Teams A B C D
 bspc monitor HDMI-A-0 -d Internet Email 1 2 3 Steam
@@ -24,6 +25,7 @@ bspc rule -a steam desktop=Steam follow=no
 bspc rule -a steamwebhelper desktop=Steam follow=no
 bspc rule -a KeePassXC desktop=Passwords
 bspc rule -a teams-for-linux desktop=Teams
+bspc rule -a obsidian monitor=DisplayPort-0
 bspc rule -a firefox desktop=A
 
 picom --config $HOME/.config/picom/picom.conf &
