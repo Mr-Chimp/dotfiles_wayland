@@ -1,4 +1,9 @@
 #!/bin/bash
+# Menu actions for the Rofi/Wofi app launcher.
+# NOTE: The Projects menu now uses 'cam' (X11 only). The old PROJECT_ITEMS
+# list and show_projects_menu() are retained for reference until the Work menu
+# and Hyprland/Wofi path are also migrated. At that point this entire system
+# can be simplified or removed.
 
 WORK_ITEMS="Platform\nInfrastructure\nSockets\nWorkers\nGitNuro\nTeams\nPlatform (VS)\nInfrastructure (VS)\nSockets (VS)\nWorkers (VS)\nDevsite Deployment\nDevsite Deployment (VS)\nDevsite Dashboard\nDevsite Dashboard (VS)\nConfig Editing"
 
@@ -73,7 +78,7 @@ show_main_menu() {
     choice=$(show_menu "$items" "Launch app:")
     case "$choice" in
         Work) show_work_menu ;;
-        Projects) show_projects_menu ;;
+        Projects) ~/.local/bin/cam --config ~/.config/cam/projects.json & disown ;;
         Notes) go_to_workspace; /home/data/Applications/notesnook_linux_x86_64.AppImage & disown ;;
         Obsidian) go_to_workspace; /home/data/Applications/Obsidian-1.8.4.AppImage & disown ;;
         "Start-up") bash "$HOME/.dotfiles/scripts/startup.sh" & disown ;;
