@@ -1,0 +1,7 @@
+[Nemo Action]
+Name=Open in OpenCode (Terminal)
+Comment=Open folder in OpenCode terminal
+Exec=alacritty --hold -e opencode %F
+Icon-Name=utilities-terminal
+Selection=any
+Extensions=dir

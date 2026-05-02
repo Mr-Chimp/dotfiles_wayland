@@ -78,6 +78,8 @@ PACKAGES=(
     jdk17-openjdk
     vulkan-devel
     smartmontools
+    cups
+    cups-filters
 )
 
 echo "==> Installing core packages"

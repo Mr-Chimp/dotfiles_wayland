@@ -28,6 +28,9 @@ LINKS=(
     "$REPO_DIR/configs/shared/rofi/themes/fonts.rasi:$HOME/.config/rofi/themes/fonts.rasi"
     "$REPO_DIR/configs/shared/rofi/themes/projects-menu.rasi:$HOME/.config/rofi/themes/projects-menu.rasi"
     "$REPO_DIR/configs/shared/rofi/themes/work-menu.rasi:$HOME/.config/rofi/themes/work-menu.rasi"
+    "$REPO_DIR/configs/shared/gtk/gtkrc-2.0:$HOME/.gtkrc-2.0"
+    "$REPO_DIR/configs/shared/gtk-3.0/settings.ini:$HOME/.config/gtk-3.0/settings.ini"
+    "$REPO_DIR/configs/shared/gtk-4.0/settings.ini:$HOME/.config/gtk-4.0/settings.ini"
     "$REPO_DIR/configs/xlibre/gsimplecal/config:$HOME/.config/gsimplecal/config"
     "$REPO_DIR/configs/xlibre/barrier.conf:$HOME/.config/barrier.conf"
     "$REPO_DIR/system/.bash_profile:$HOME/.bash_profile"
@@ -61,6 +64,7 @@ LINKS=(
     "$REPO_DIR/scripts/vpn-status.sh:$HOME/.local/bin/vpn-status"
     "$REPO_DIR/scripts/vpn-on.sh:$HOME/.local/bin/vpn-on"
     "$REPO_DIR/scripts/vpn-off.sh:$HOME/.local/bin/vpn-off"
+    "$REPO_DIR/configs/mimeapps.list:$HOME/.config/mimeapps.list"
 )
 
 # Files to copy instead of symlink (for tools, etc.)

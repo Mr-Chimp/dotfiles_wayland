@@ -78,7 +78,7 @@ show_main_menu() {
     choice=$(show_menu "$items" "Launch app:")
     case "$choice" in
         Work) show_work_menu ;;
-        Projects) ~/.local/bin/cam --config ~/.config/cam/projects.json & disown ;;
+        Projects) ~/.local/bin/cam --config ~/.config/cam/projects.json --log & disown ;;
         Notes) go_to_workspace; /home/data/Applications/notesnook_linux_x86_64.AppImage & disown ;;
         Obsidian) go_to_workspace; /home/data/Applications/Obsidian-1.8.4.AppImage & disown ;;
         "Start-up") bash "$HOME/.dotfiles/scripts/startup.sh" & disown ;;
