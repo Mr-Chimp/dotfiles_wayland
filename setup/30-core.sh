@@ -80,6 +80,8 @@ PACKAGES=(
     smartmontools
     cups
     cups-filters
+    foliate
+    libwebp
 )
 
 echo "==> Installing core packages"
